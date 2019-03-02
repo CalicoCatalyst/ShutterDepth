@@ -1,9 +1,11 @@
 #import <UIKit/UIKit.h>
 
-NSDictionary *bundle = [[NSUserDefaults standardUserDefaults] persistentDomainForName:@"com.jbrownllama.shutterdepth"];
+NSDictionary *bundle = [[NSUserDefaults standardUserDefaults] persistentDomainForName:@"com.jbrownllama.shutterpref"];
 
 id PMisEnabled = [bundle valueForKey:@"PMisEnabled"];
 
+@interface CAMCaptureCapabilities
+@end
 
 %hook CAMCaptureCapabilities
 
@@ -15,6 +17,9 @@ id PMisEnabled = [bundle valueForKey:@"PMisEnabled"];
 	}
 }
 %end
+
+@interface FigCaptureSourceVideoFormat
+@end
 
 %hook FigCaptureSourceVideoFormat
 
@@ -43,6 +48,9 @@ id PMisEnabled = [bundle valueForKey:@"PMisEnabled"];
 }
 %end
 
+@interface AVCaptureDeviceFormat
+@end
+
 %hook AVCaptureDeviceFormat
 
 -(float)minSimulatedAperture {
@@ -70,6 +78,9 @@ id PMisEnabled = [bundle valueForKey:@"PMisEnabled"];
 }
 %end
 
+@interface PUCropToolController
+@end
+
 %hook PUCropToolController
 
 -(void)viewWillAppear:(BOOL)argument {
@@ -88,6 +99,9 @@ id PMisEnabled = [bundle valueForKey:@"PMisEnabled"];
 	}
 }
 %end
+
+@interface PUFiltersToolController
+@end
 
 %hook PUFiltersToolController
 
@@ -108,6 +122,9 @@ id PMisEnabled = [bundle valueForKey:@"PMisEnabled"];
 }
 %end
 
+@interface PUAdjustmentsToolController
+@end
+
 %hook PUAdjustmentsToolController
 
 -(void)viewWillAppear:(BOOL)argument {
@@ -126,6 +143,9 @@ id PMisEnabled = [bundle valueForKey:@"PMisEnabled"];
 	}
 }
 %end
+
+@interface PURedeyeToolController
+@end
 
 %hook PURedeyeToolController
 
@@ -146,6 +166,9 @@ id PMisEnabled = [bundle valueForKey:@"PMisEnabled"];
 }
 %end
 
+@interface CAMViewfinderViewController
+@end
+
 %hook CAMViewfinderViewController
 
 -(bool) _shouldEnableApertureButton {
@@ -156,5 +179,3 @@ id PMisEnabled = [bundle valueForKey:@"PMisEnabled"];
 	}
 }
 %end
-
-
