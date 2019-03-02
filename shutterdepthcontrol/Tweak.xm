@@ -122,6 +122,31 @@ id PMisEnabled = [bundle valueForKey:@"PMisEnabled"];
 }
 %end
 
+@interface CAMLightingControl
+@end
+
+%hook CAMLightingControl
+
+-(void)setCenter:(CGPoint)argument {
+
+}
+%end
+
+@interface CAMApertureButton
+@end
+
+%hook CAMApertureButton
+
+-(void)setFrame:(CGRect)argument {
+
+}
+
+-(void)layoutSubviews {
+
+}
+
+%end
+
 @interface PUAdjustmentsToolController
 @end
 
@@ -163,6 +188,25 @@ id PMisEnabled = [bundle valueForKey:@"PMisEnabled"];
 	}else{
 		return %orig;
 	}
+}
+%end
+
+@interface PUPhotoEditViewController
+@end
+
+%hook PUPhotoEditViewController
+
+-(void)_handleDoneButton:(id)argument {
+
+}
+-(id)_depthButtonIcon {
+
+}
+-(void)_handleDepthEffectButton:(id)argument {
+
+}
+-(void)_performRevertAction {
+
 }
 %end
 
